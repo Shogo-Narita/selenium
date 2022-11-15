@@ -1,5 +1,7 @@
 package selenium;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -29,10 +31,31 @@ public class ex02 {
 	WebElement element2 = driver.findElement(By.cssSelector("#categories-3 > ul > li.cat-item.cat-item-2 > ul > li.cat-item.cat-item-48"));
 	element2.click();
 	
-	WebElement element3 = driver.findElement(By.cssSelector("#main > div.cardtype.cf > article:nth-child(1) > a > div"));
-	element3.click();
+//	WebElement element3 = driver.findElement(By.cssSelector("#main > div.cardtype.cf > article:nth-child(1) > a > div"));
+//	element3.click();
 	
-	System.out.println(driver.getCurrentUrl());
+	driver.get("https://rakuplus.jp/archives/11203");
+	
+	List<WebElement>divElemList=driver.findElements(By.cssSelector("section.entry-content > div"));
+	int count=0;
+	for(WebElement elem : divElemList) {
+		if(count>0) {
+			WebElement imgElem =elem.findElement(By.cssSelector("img"));
+			String url =imgElem.getAttribute("src");
+     		System.out.println(url);
+     		
+     		WebElement spanElem =elem.findElement(By.cssSelector("span.big"));
+     		System.out.println(spanElem.getText());
+     		
+     		WebElement pElem =elem.findElement(By.cssSelector("p.has-text-color"));
+     		System.out.println(pElem.getText());
+     		
+		}
+		count++;
+		
+		
+	}
+	
 	
 	
 
