@@ -21,10 +21,10 @@ public class ex02 {
 	driver.get("http://rakuplus.jp/");
 	
 	WebElement element = driver.findElement(By.cssSelector("#user_login"));
-	element.sendKeys("shogo.narita@rakus-partners.co.jp");
+	element.sendKeys("");
 	
 	WebElement element1 = driver.findElement(By.cssSelector("#user_pass"));
-	element1.sendKeys("shogo.narita@rakus-partners.co.jp");
+	element1.sendKeys("");
 	
 	element.sendKeys(Keys.ENTER);
 	
